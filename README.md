@@ -5,4 +5,8 @@ Kursbeispiele zum fortgeschrittenen PowerShell Kurs der ppedv AG
 
 Agenda:
 - Einführung
+- Neuerungen
+    - PowerShell 5
+    - PowerShell 6
+    - PowerShell 7
 - Git

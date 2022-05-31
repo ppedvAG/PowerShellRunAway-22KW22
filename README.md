@@ -10,3 +10,4 @@ Agenda:
     - PowerShell 6
     - PowerShell 7
 - Git
+- DSC

@@ -11,3 +11,4 @@ Agenda:
     - PowerShell 7
 - Git
 - DSC
+- Scripting Example

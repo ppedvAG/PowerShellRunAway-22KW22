@@ -25,15 +25,30 @@ https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/abo
 [cmdletBinding()]
 param(
 [Parameter(Mandatory=$true)]
+[ValidateSet(4624,4625,4634)]
 [int]$EventId,
 
+[ValidateRange(5,10)]
 [int]$Newest = 5,
 
-[string]$ComputerName = "localhost"
+[ValidateScript({Test-NetConnection -ComputerName $PSItem -CommonTcpPort WinRM})]
+[string]$ComputerName = "localhost",
+
+[ValidatePattern("[a-z]{3}[0-9]{3}[.](csv)")]
+[string]$FileName = "NoInput"
 )
 
 Write-Verbose -Message "Ich werde bloß ausgegeben wenn das Skript mit -verbose aufgerufen wird, um mich verwenden zu können sollte [cmdletBinding]param() verwendet werden"
 Write-Verbose -Message "Vom User wurde folgendes angegeben $EventID | $Newest | $ComputerName"
 
 
-Get-EventLog -LogName Security -ComputerName $ComputerName | Where-Object EventId -eq $EventId | Select-Object -First $Newest
+$Ergebnis = Get-EventLog -LogName Security -ComputerName $ComputerName | Where-Object EventId -eq $EventId | Select-Object -First $Newest
+
+if($FileName -eq "NoInput")
+{
+    $Ergebnis
+}
+else
+{
+    Export-Csv -InputObject $Ergebnis -Path $FileName
+}

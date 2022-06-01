@@ -11,4 +11,8 @@ Agenda:
     - PowerShell 7
 - Git
 - DSC
-- Scripting Example
+- Scripting
+    - BeispielScript
+    - Skriptübung
+    - Funktionen in Skripten
+- PowerShell Scopes

@@ -16,3 +16,9 @@ Agenda:
     - Skriptübung
     - Funktionen in Skripten
 - PowerShell Scopes
+- Advanced Scripting
+    - Module
+    - PipeLineInput
+    - ParameterSetName
+    - Beginn Process End
+- Class / Enum
